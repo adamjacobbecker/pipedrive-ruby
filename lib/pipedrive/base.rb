@@ -115,7 +115,7 @@ module Pipedrive
 
       def find_by_name(name, opts={})
         res = get "#{resource_path}/find", :query => { :term => name }.merge(opts)
-        res.ok? ? new_list(res) : bad_response(res,{:name => name}.merge(opts))
+        res.ok? ? new_list(res) : new_list(nil)
       end
 
       def resource_path
